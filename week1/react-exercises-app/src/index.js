@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./hobby";
+import Counter from "./Counter";
 import Guarantee from "./Guarantee";
 import delivery from "./delivery.png";
 import coin from "./coin.png";
@@ -52,4 +53,10 @@ ReactDOM.render(
     <Guarantee componentEle={components} />
   </React.StrictMode>,
   document.getElementById("Guarantees")
+);
+ReactDOM.render(
+  <React.StrictMode>
+    <Counter  />
+  </React.StrictMode>,
+  document.getElementById("Counter")
 );
