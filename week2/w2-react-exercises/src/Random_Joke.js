@@ -2,24 +2,18 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 
 export default function RandomJoke() {
-  const { joke, setJoke } = useState({});
-  const { isLoading, setLoading } = useState(false);
-  const { hasError, setError } = useState(false);
+  const [joke, setJoke] = useState({});
+  const [isLoading, setLoading] = useState(false);
+  const [hasError, setError] = useState(false);
 
   const api = "https://official-joke-api.appspot.com/random_joke";
   useEffect(() => {
     setLoading(true);
     fetch(api)
       .then((res) => res.json())
-      .then((data) => {
-        setJoke(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.log("error", err);
-        setError(true);
-        setLoading(false);
-      });
+      .then((data) => setJoke(data))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
   }, []);
 
   function Joke(props) {

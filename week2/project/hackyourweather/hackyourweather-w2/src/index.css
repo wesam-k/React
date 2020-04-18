@@ -12,28 +12,21 @@ code {
     monospace;
 }
 
-.newFriend{
-  float: left;
+.compon{
+  width: 450px;
+  border: 1px solid black;
   text-align: left;
-  width: 30%;
-  margin: 20px;
-}
-
-.dogPhotos{
-  float: right;
-  width: 300px;
-  margin: 20px;
+  margin-bottom: 50px;
+  padding-left: 30px;
+  margin-left: auto;
+  margin-right: auto;
 
 }
-
-.photo{
-  width: 250px;
-  height:250px;
+h4{
+ margin-top: 5px;
+ margin-bottom: 0px;
 }
-button{
-  margin: 5px;
-}
-.RandomJoke{
-  float: left;
-  margin: 20px;
+.part2{
+ margin-top: 20px;
+ line-height: 1em;
 }
