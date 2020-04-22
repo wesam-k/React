@@ -36,3 +36,66 @@
     transform: rotate(360deg);
   }
 }
+
+/*---------------------*/
+.App {
+  text-align: center;
+}
+.weatherHeader {
+  text-align: center;
+  padding: 1em;
+}
+.search-form {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.search-bar {
+  width: 250px;
+  height: 35px;
+  margin-right: 20px;
+  padding: 0px 20px;
+  border: 1px solid #e3e3e3;
+  border-radius: 15px;
+}
+.search-bar:focus {
+  outline: none;
+}
+.search-button {
+  height: 35px;
+  width: 100px;
+  background-color: #dedede;
+}
+.search-button:focus {
+  outline: none;
+}
+.CityName-compon {
+  width: 370px;
+  border: 1px solid black;
+  text-align: left;
+  margin-bottom: 50px;
+  padding-left: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Open Sans", sans-serif;
+}
+h3 {
+  font-weight: 800;
+}
+h4 {
+  margin-top: 5px;
+  margin-bottom: 0px;
+
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+main {
+  font-family: "Mukta", sans-serif;
+  font-weight: 500;
+}
+.part2 {
+  margin-top: 20px;
+  line-height: 1em;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+}
