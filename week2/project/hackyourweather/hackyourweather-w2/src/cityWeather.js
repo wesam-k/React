@@ -17,12 +17,8 @@ export default function CityData() {
         const res = await fetch(
           `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${API_KEY}`
         );
-        // if (res.cod !== 200) {
-        //   alert("Please Enter a City Name");
-        // }
         const data = await res.json();
         setCityWeather(data);
-        console.log(data);
         setLoading(false);
       } catch (err) {
         console.log("err", err);

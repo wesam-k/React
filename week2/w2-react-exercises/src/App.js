@@ -1,6 +1,6 @@
 import React from "react";
-import Friend from "./newFriend";
-import DogGallery from "./Dog_photo_gallery";
+import NewFriend from "./newFriend";
+import DogGallery from "./DogGallery";
 import RandomJoke from "./Random_Joke"
 import "./App.css";
 
@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <div className="App">
-        <Friend />
+        <NewFriend />
       </div>
       <div className="DogGallery">
         <DogGallery />

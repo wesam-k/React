@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FriendProfile from "./FriendProfile";
 import "./App.css";
 
-export default function Friend() {
+export default function NewFriend() {
   const [friend, setFriend] = useState({});
   const [isLoading, setLoading] = useState(false);
   const [hasError, setError] = useState(false);
