@@ -7,15 +7,14 @@ import { faTimes } from "@fortawesome/free-solid-svg-icons";
 library.add(faTimes);
 
 export default function CityData() {
-  const [cityWeather, setCityWeather] = useState({});
   const [citiesWeather, setCitiesWeather] = useState([]);
   const [search, setSearch] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [hasError, setError] = useState(false);
 
-  const API_KEY = process.env.REACT_APP_WEATHER;
   useEffect(() => {
+    const API_KEY = process.env.REACT_APP_WEATHER;
     const getNewCity = async () => {
       try {
         setLoading(true);
@@ -23,8 +22,7 @@ export default function CityData() {
           `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${API_KEY}`
         );
         const data = await res.json();
-        setCityWeather(data);
-        setCitiesWeather([data, ...citiesWeather]);
+        setCitiesWeather((oldCitiesWeather) => [data, ...oldCitiesWeather]);
         setLoading(false);
       } catch (err) {
         console.log("err", err);
@@ -48,9 +46,11 @@ export default function CityData() {
     }
   };
 
-  const deleteEle = (id) => {
-    const elem = citiesWeather.filter((cityWeather) => cityWeather.id !== id);
-    setCitiesWeather(elem);
+  const deleteOneCity = (id) => {
+    const oneCity = citiesWeather.filter(
+      (cityWeather) => cityWeather.id !== id
+    );
+    setCitiesWeather(oneCity);
   };
 
   return (
@@ -65,7 +65,6 @@ export default function CityData() {
             placeholder="       Search City"
             onChange={updateSearch}
           />
-
           <button className="search-button" type="submit">
             Search
           </button>
@@ -74,7 +73,11 @@ export default function CityData() {
       {citiesWeather.map(
         (cityWeather) =>
           cityWeather.id && (
-            <CityName cityInfo={cityWeather} deleteCity={deleteEle} />
+            <CityName
+              key={cityWeather.id}
+              cityInfo={cityWeather}
+              deleteCity={deleteOneCity}
+            />
           )
       )}
       {isLoading && <p> loading...!!! just waiting </p>}
