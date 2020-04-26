@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./hobby";
+import Hobbies from "./hobbies";
 import Counter from "./Counter";
 import Guarantee from "./Guarantee";
 import delivery from "./delivery.png";
@@ -8,7 +8,7 @@ import coin from "./coin.png";
 import chat from "./chat.png";
 
 
-const components = [
+const service = [
   {
     img: { delivery },
     title: " Free shipping",
@@ -26,7 +26,7 @@ const components = [
   },
 ];
 
-const hobbies = [
+const hobbiesKind = [
   {
     kind: "Surfing",
   },
@@ -43,14 +43,14 @@ const hobbies = [
 
 ReactDOM.render(
   <React.StrictMode>
-    <App HobbiesKind={hobbies} />
+    <Hobbies HobbyList={hobbiesKind} />
   </React.StrictMode>,
   document.getElementById("hobby")
 );
 
 ReactDOM.render(
   <React.StrictMode>
-    <Guarantee componentEle={components} />
+    <Guarantee service={service} />
   </React.StrictMode>,
   document.getElementById("Guarantees")
 );

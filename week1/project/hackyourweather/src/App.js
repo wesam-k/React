@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import CityData from "./weatherCard";
+import WeatherCard from "./weatherCard";
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
         Weather
       </h1>
 
-      <CityData />
+      <WeatherCard />
     </div>
   );
 }

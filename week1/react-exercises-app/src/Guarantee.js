@@ -1,6 +1,6 @@
 import React from "react";
 
-const GuaranteeItems = ({ prop }) => {
+const GuaranteeItems = ({ product }) => {
   return (
     <div
       className="Guar"
@@ -10,18 +10,18 @@ const GuaranteeItems = ({ prop }) => {
         margin: "20px",
       }}
     >
-      <img src={prop.img} />
-      <h3>{prop.title}</h3>
-      <p>{prop.description}</p>
+      <img src={product.img} />
+      <h3>{product.title}</h3>
+      <p>{product.description}</p>
     </div>
   );
 };
 
-function Guarantee({ componentEle }) {
+function Guarantee({service  }) {
   return (
     <div>
-      {componentEle.map((prop) => (
-        <GuaranteeItems prop={prop} />
+      {service.map((production) => (
+        <GuaranteeItems product={production} />
       ))}
     </div>
   );

@@ -3,8 +3,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import cityWeather from "./city-weather.json";
 
-function CityData() {
-  return cityWeather.map((Object) => {
+function WeatherCard() {
+  return cityWeather.map((city) => {
     // i used style here to lean how is it working and what is my mistake // of course i will use ass.css in future
     return (
       <div
@@ -20,24 +20,24 @@ function CityData() {
         }}
       >
         <h3>
-          {Object.name}, {Object.sys.country}{" "}
+          {city.name}, {city.sys.country}{" "}
         </h3>
         <div>
           <h4 style={{ marginTop: "5px", marginBottom: "0px" }}>
-            {Object.weather[0].main}
+            {city.weather[0].main}
           </h4>
-          <main>{Object.weather[0].description}</main>
+          <main>{city.weather[0].description}</main>
         </div>
         <div className="part2" style={{ marginTop: "20px", lineHeight: "1em" }}>
           <p>
-            <pre>min_temp: {Object.main.temp_min}</pre>
+            <pre>min_temp: {city.main.temp_min}</pre>
           </p>
           <p>
-            <pre>max_temp: {Object.main.temp_max}</pre>
+            <pre>max_temp: {city.main.temp_max}</pre>
           </p>
           <p>
             <pre>
-              location: {Object.coord.lon}, {Object.coord.lat}
+              location: {city.coord.lon}, {city.coord.lat}
             </pre>
           </p>
         </div>
@@ -46,4 +46,4 @@ function CityData() {
   });
 }
 
-export default CityData;
+export default WeatherCard;
