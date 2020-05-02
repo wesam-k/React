@@ -1,15 +1,18 @@
 import React from "react";
 import "./index.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {Link} from "react-router-dom";
 
-export default function CityName({ cityInfo, deleteCity }) {
+export default function CityCard({ cityInfo, deleteCity }) {
   const kelvinToCelsius = (kelvin) => {
     return (kelvin - 273).toFixed(0);
   };
   return (
     <div className="CityName-compon">
       <h3>
+        <Link to={'/' + cityInfo.id}>
         {cityInfo.name}, {cityInfo.sys.country}
+        </Link>
         <span>
           <FontAwesomeIcon
             className="faicon"
@@ -31,4 +34,5 @@ export default function CityName({ cityInfo, deleteCity }) {
       </div>
     </div>
   );
-}
+  }
+

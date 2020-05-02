@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import CityName from "./cityCard";
+import CityCard from "./cityCard";
 import "./index.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Forecast from "./forecast";
 
 library.add(faTimes);
 
-export default function CityData() {
+export default function CityWeatherData() {
   const [citiesWeather, setCitiesWeather] = useState([]);
   const [search, setSearch] = useState("");
   const [inputValue, setInputValue] = useState("");
@@ -54,34 +56,41 @@ export default function CityData() {
   };
 
   return (
-    <div className=" weatherCity">
-      <h1>Weather</h1>
-      <div>
-        <form onSubmit={getSearch} className="search-form">
-          <input
-            className="search-bar"
-            type="text"
-            value={search}
-            placeholder="       Search City"
-            onChange={updateSearch}
-          />
-          <button className="search-button" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-      {citiesWeather.map(
-        (cityWeather) =>
-          cityWeather.id && (
-            <CityName
-              key={cityWeather.id}
-              cityInfo={cityWeather}
-              deleteCity={deleteOneCity}
-            />
-          )
-      )}
-      {isLoading && <p> loading...!!! just waiting </p>}
-      {hasError && <p> something is wrong</p>}
-    </div>
+    <Router>
+      <Route path="/" exact>
+        <div className=" weatherCity">
+          <h1>Weather</h1>
+          <div>
+            <form onSubmit={getSearch} className="search-form">
+              <input
+                className="search-bar"
+                type="text"
+                value={search}
+                placeholder="       Search City"
+                onChange={updateSearch}
+              />
+              <button className="search-button" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+          {citiesWeather.map(
+            (cityWeather) =>
+              cityWeather.id && (
+                <CityCard
+                  key={cityWeather.id}
+                  cityInfo={cityWeather}
+                  deleteCity={deleteOneCity}
+                />
+              )
+          )}
+          {isLoading && <p> loading...!!! just waiting </p>}
+          {hasError && <p> something is wrong</p>}
+        </div>
+      </Route>
+      <Route path="/:cityId" exact>
+        <Forecast />
+      </Route>
+    </Router>
   );
 }
