@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.weatherHeader{
+  text-align: enter;
+   padding: 1em;
+}
