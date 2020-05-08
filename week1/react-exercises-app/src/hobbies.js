@@ -12,7 +12,7 @@ const HobbyList = ({ hobby }) => {
 
 function Hobbies({ HobbiesKind }) {
   return (
-    <div className="app">
+    <div className="app" key={hobbyKind.id}>
       {HobbiesKind.map((hobbyKind) => (
         <HobbyList hobby={hobbyKind} />
       ))}

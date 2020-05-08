@@ -5,12 +5,12 @@ const GuaranteeItems = ({ product }) => {
     <div
       className="Guar"
       style={{
-        width: "calc(33.3%-20)",
+        width: "calc(33.3%-20px)",
         display: "inline-block",
         margin: "20px",
       }}
     >
-      <img src={product.img} />
+      <img src={product.img} alt="product"/>
       <h3>{product.title}</h3>
       <p>{product.description}</p>
     </div>
@@ -19,7 +19,7 @@ const GuaranteeItems = ({ product }) => {
 
 function Guarantee({service  }) {
   return (
-    <div>
+    <div key={production.id}>
       {service.map((production) => (
         <GuaranteeItems product={production} />
       ))}
