@@ -5,7 +5,7 @@ import cityWeather from "./city-weather.json";
 
 function WeatherCard() {
   return cityWeather.map((city) => {
-    // i used style here to lean how is it working and what is my mistake // of course i will use ass.css in future
+    // i used style here to lean how is it working  // of course i will use app.css in next week 
     return (
       <div
         className="compon"
